@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { WeatherForecastListComponent } from './weather-forecast-list.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
+import { WeatherForecastService } from './weather-forecast.service';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,9 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule
   ],
-  providers: [],
+  providers: [
+    WeatherForecastService
+  ],
   exports: [
     WeatherForecastListComponent
   ]

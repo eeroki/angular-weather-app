@@ -5,6 +5,7 @@ import { exampleForecasts } from './weather/example-forecasts';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/switchMap';
+import { WeatherForecastService } from './weather/weather-forecast.service';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,7 @@ export class AppComponent implements OnInit {
   weatherInfo: Observable<WeatherInfo>;
   searchForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private forecastService: WeatherForecastService) {
     this.searchForm = fb.group({
       term: [undefined]
     });
@@ -26,6 +27,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.weatherInfo = this.searchForm.get('term').valueChanges
     .debounceTime(300)
-    .switchMap(term => Observable.of(exampleForecasts));
+    .switchMap(term => this.forecastService.search(term));
   }
 }

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { WeatherInfo } from './weather-info';
+import { WeatherInfo, Forecast } from './weather-info';
 
 @Component({
   selector: 'weather-forecast-list',
@@ -8,4 +8,8 @@ import { WeatherInfo } from './weather-info';
 })
 export class WeatherForecastListComponent {
   @Input() weatherInfo: WeatherInfo;
+
+  asDate(seconds: number): string {    
+    return new Date(seconds * 1000).toLocaleString();
+  }
 }

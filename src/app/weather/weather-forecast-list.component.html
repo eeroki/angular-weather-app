@@ -2,7 +2,7 @@
   <h2>Forecasts for {{weatherInfo.city.name}}</h2>
   <ul>
     <li *ngFor="let forecast of weatherInfo.list">
-      <h3>{{forecast.dt_text}}</h3>
+      <h3>{{asDate(forecast.dt)}}</h3>
       <ul>
         <li>Humidity: {{forecast.main.humidity}}</li>       
         <li>Pressure: {{forecast.main.pressure}}</li>       

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { WeatherForecastModule } from './weather/weather-forecast.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,8 +16,9 @@ registerLocaleData(localeFi, 'fi-FI');
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,    
-    ReactiveFormsModule,
+    ReactiveFormsModule,    
     WeatherForecastModule
   ],
   providers: [

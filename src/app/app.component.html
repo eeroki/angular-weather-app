@@ -5,5 +5,10 @@
   <img class="app-logo" alt="Weather app" src="/assets/images/logo.png">
 </div>
 <div>
+    <form [formGroup]="searchForm" novalidate>
+      <input formControlName="term" placeholder="Search forecasts for city">
+    </form>    
+</div>
+<div>
   <weather-forecast-list [weatherInfo]="weatherInfo | async"></weather-forecast-list>
 </div>
